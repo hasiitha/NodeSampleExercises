@@ -17,12 +17,12 @@ const CoursesSchema = new mongoose.Schema({
 
 const courses =new mongoose.model('courses',CoursesSchema);
 
-//my answer
+//my answer modified with sir answer
 async function getCourses(){
    //get all published courses
     //sort by their name
     //pick name and author only
-    const courseDetails = await courses.find()
+    const courseDetails = await courses.find({tags:'backend',isPublished:true})
         .sort({name:1})
         .select({name:1,author:1})
 
